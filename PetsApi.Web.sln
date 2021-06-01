@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsApi.Web", "PetsApi.Web\PetsApi.Web.csproj", "{D9885086-DDC1-46EA-A77E-33DAE98FDB1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsApi.Web.Tests", "PetsApi.Web.Tests\PetsApi.Web.Tests.csproj", "{C3DFF875-BE5E-4C30-9472-6FE1FD56BC26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsApi.Data", "PetsApi.Data\PetsApi.Data.csproj", "{88AF936E-C05C-41E6-9E4A-BAFC0B68B951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{D9885086-DDC1-46EA-A77E-33DAE98FDB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9885086-DDC1-46EA-A77E-33DAE98FDB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9885086-DDC1-46EA-A77E-33DAE98FDB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DFF875-BE5E-4C30-9472-6FE1FD56BC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DFF875-BE5E-4C30-9472-6FE1FD56BC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DFF875-BE5E-4C30-9472-6FE1FD56BC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DFF875-BE5E-4C30-9472-6FE1FD56BC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AF936E-C05C-41E6-9E4A-BAFC0B68B951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AF936E-C05C-41E6-9E4A-BAFC0B68B951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AF936E-C05C-41E6-9E4A-BAFC0B68B951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AF936E-C05C-41E6-9E4A-BAFC0B68B951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
