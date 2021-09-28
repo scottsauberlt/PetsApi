@@ -41,7 +41,7 @@ namespace PetsApi.Web.Tests
             CreatePet(2);
             var client = _webApplicationFactory.CreateClient();
 
-            var pets = await client.GetFromJsonAsync<List<Pet>>($"/pets") ?? new List<Pet>();
+            var pets = await client.GetFromJsonAsync<List<Pet>>("/pets") ?? new List<Pet>();
 
             Assert.Equal(2, pets.Count);
             Assert.Contains(pets, x => x.Id == 1);
@@ -50,7 +50,6 @@ namespace PetsApi.Web.Tests
 
         private void CreatePet(int id)
         {
-            _dbContext.SaveChanges();
             _dbContext.Pets.Add(new Pet {Id = id});
             _dbContext.SaveChanges();
         }

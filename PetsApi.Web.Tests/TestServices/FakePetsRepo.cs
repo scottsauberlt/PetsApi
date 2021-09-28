@@ -9,7 +9,7 @@ namespace PetsApi.Web.Tests.TestServices
     {
         public Task<Pet> GetPetById(int id)
         {
-            return Task.FromResult(new Pet {Id = 3});
+            return Task.FromResult(new Pet {Id = id});
         }
 
         public Task<List<Pet>> GetAll()
