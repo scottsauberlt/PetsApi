@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PetsApi.Data.Models;
 using PetsApi.Data.Repos;
 
 namespace PetsApi.Web.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class PetsController : ControllerBase
+    public class AuthPetsController : ControllerBase
     {
         private readonly IPetsRepo _petsRepo;
 
-        public PetsController(IPetsRepo petsRepo)
+        public AuthPetsController(IPetsRepo petsRepo)
         {
             _petsRepo = petsRepo;
         }
