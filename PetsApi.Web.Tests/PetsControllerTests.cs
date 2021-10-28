@@ -24,10 +24,10 @@ namespace PetsApi.Web.Tests
         public async Task GetShouldReturnSinglePetWhenIdIsRequested()
         {
             var id = 1;
-            CreatePet(1);
+            CreatePet(id);
             var client = _webApplicationFactory.CreateClient();
 
-            var pet = await client.GetFromJsonAsync<Pet>("/pets/1");
+            var pet = await client.GetFromJsonAsync<Pet>($"/pets/{id}");
 
             Assert.Equal(pet?.Id, id);
         }
@@ -36,7 +36,7 @@ namespace PetsApi.Web.Tests
         {
             _dbContext.Pets.RemoveRange(_dbContext.Pets.ToList());
             _dbContext.SaveChanges();
-            _dbContext.Pets.Add(new Pet {Id = 1});
+            _dbContext.Pets.Add(new Pet {Id = id});
             _dbContext.SaveChanges();
         }
     }
