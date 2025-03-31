@@ -1,14 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using PetsApi.Data.Models;
 
-namespace PetsApi.Data
+namespace PetsApi.Data;
+
+public class PetsDbContext : DbContext
 {
-    public class PetsDbContext : DbContext
+    public PetsDbContext(DbContextOptions<PetsDbContext> options) : base(options)
     {
-        public PetsDbContext(DbContextOptions<PetsDbContext> options) : base(options)
-        {
-        }
-        
-        public DbSet<Pet> Pets { get; set; }
     }
+        
+    public DbSet<Pet> Pets { get; set; }
 }

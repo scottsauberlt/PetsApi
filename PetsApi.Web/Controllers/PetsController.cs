@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace PetsApi.Web.Controllers
+namespace PetsApi.Web.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class PetsController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PetsController : ControllerBase
-    {
-    }
 }

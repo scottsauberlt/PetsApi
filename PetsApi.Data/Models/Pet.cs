@@ -1,8 +1,7 @@
-﻿namespace PetsApi.Data.Models
+﻿namespace PetsApi.Data.Models;
+
+public class Pet
 {
-    public class Pet
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
 }
