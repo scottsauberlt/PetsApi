@@ -35,7 +35,7 @@ public class PetsControllerTests
     {
         await _dbContext.Pets.ExecuteDeleteAsync();
         await _dbContext.SaveChangesAsync();
-        _dbContext.Pets.Add(new Pet {Id = id});
+        _dbContext.Pets.Add(new Pet {Id = id, Name = "Bluey"});
         await _dbContext.SaveChangesAsync();
     }
 }
