@@ -1,7 +1,6 @@
-using System.Linq;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PetsApi.Data;
 using PetsApi.Data.Models;
@@ -11,12 +10,12 @@ namespace PetsApi.Web.Tests
 {
     public class PetsControllerTests
     {
-        private readonly WebApplicationFactory<Startup> _webApplicationFactory;
+        private readonly WebApplicationFactory<Program> _webApplicationFactory;
         private readonly PetsDbContext _dbContext;
 
         public PetsControllerTests()
         {
-            _webApplicationFactory = new WebApplicationFactory<Startup>();
+            _webApplicationFactory = new WebApplicationFactory<Program>();
             _dbContext = _webApplicationFactory.Services.CreateScope().ServiceProvider.GetRequiredService<PetsDbContext>();
         }
 
@@ -24,20 +23,20 @@ namespace PetsApi.Web.Tests
         public async Task GetShouldReturnSinglePetWhenIdIsRequested()
         {
             var id = 1;
-            CreatePet(id);
+            await CreatePet(id);
             var client = _webApplicationFactory.CreateClient();
 
-            var pet = await client.GetFromJsonAsync<Pet>($"/pets/{id}");
+            var pet = await client.GetFromJsonAsync<Pet>($"/api/pets/{id}");
 
             Assert.Equal(pet?.Id, id);
         }
 
-        private void CreatePet(int id)
+        private async Task CreatePet(int id)
         {
-            _dbContext.Pets.RemoveRange(_dbContext.Pets.ToList());
-            _dbContext.SaveChanges();
+            await _dbContext.Pets.ExecuteDeleteAsync();
+            await _dbContext.SaveChangesAsync();
             _dbContext.Pets.Add(new Pet {Id = id});
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
